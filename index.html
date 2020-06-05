@@ -52,6 +52,11 @@
         var symbols = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "_", "-", "=", "+", "{", "[", "}", "]", ";", ":", ",", ".", "<", ">", "/", "?"];
         var numbers = [];
         
+        var passLength = prompt("Password Length: Please choose a number between 8 and 128.");
+        var charUpper = confirm("Do you want Uppercase letters in your password?");
+        var charLower = confirm("Do you want Lowercase letters in your password?");
+        var charNum = confirm("Do you want numbers in your password?");
+        
         for (i = 8; i < 129; i++) {
             var arrNum = i;
             console.log(i);
