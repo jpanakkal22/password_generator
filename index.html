@@ -1,110 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!--Bootstrap and CSS links-->
-    <!-- CSS only -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
+        <!--Bootstrap and CSS links-->
+        <!-- CSS only -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+        <link rel="stylesheet" href="style.css">
 
-    <title>Password Generator</title>
+        <title>Password Generator</title>
 
-</head>
+    </head>
 
-<body>
-<h1>Password Generator</h1>
-
-    <div class="container A">
-        <header class="row">
-            <div class="col-12">
-                <h2>Generate a Password</h2>                
-            </div>
-        </header>
-
-        <div class="row">
-            <div class="col-12">
-                <hr>
-                <br>
-                <br>
-                <p>Some will go in here, but I don't know yet:)</p>
-                <br>
-                <br>
-                <br>
-                <hr>
-            </div>
-
-        </div>
-
-        <div class="row">
-            <div class="col-12 text-center">
-                <button type="button" class="btn btn-secondary btn-lg">Large button</button>
-            </div>
-
-        </div>
-    </div>
-
-    <script type="text/javascript">
-
-    var passLength = prompt("Password Length: Please choose a number between 8 and 128.");
-    var charUpper = confirm("Do you want Uppercase letters in your password?");
-    var charLower = confirm("Do you want Lowercase letters in your password?");
-    var charNum = confirm("Do you want numbers in your password?");
-    var charSpec = confirm("Do you want special characters in your password?");
-
-    var arrayJ = ["a", "b", "c", "d", "e", "f", "g", "h", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""];
-    var arrayZ = ["A", "B", "C", "D", "E", "F", "G", "H", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""];
-    var arrayV = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
-    var arrayK = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "<", ">", "/", "?"];
-    var password = [];
-    var xPass = [];
-    var length = passLength;
-
-    
-    if (passLength > 8) {
-
-        for (i=0; i < length; i++) {
-
-            if (charUpper) {
-                password += arrayZ[Math.floor(Math.random() * arrayZ.length)];
-            }
-            if (charLower) {
-                password += arrayJ[Math.floor(Math.random() * arrayJ.length)];
-
-            }
-            if (charNum) {
-                password += arrayV[Math.floor(Math.random() * arrayV.length)];
-            }
-            if (charSpec) {
-                password += arrayK[Math.floor(Math.random() * arrayK.length)];
-            }
-        }
-
-        for (i=0; i <= length; i++) {
-
-            xPass += password[Math.floor(Math.random() * password.length)];
-
-        }
-
-        alert(xPass);
-            
-    }
-    else {
-        alert("You did not pick a number correctly. Run the generator again!")
-    }
-
-    
-
-    
-
-       
-
+    <body>
         
+        <h1>Password Generator</h1>
 
-    </script>
+        <div class="container A">
+            <header class="row">
+                <div class="col-12">
+                    <h2>Generate a Password</h2>                
+                </div>
+            </header>
 
+            <div class="row">
+                <div class="col-12">
+                    <div class="alert alert-success" role="alert" id="demo">                        
+                    </div>
+                </div>
+            </div>
 
-    
-</body>
+            <div class="row">
+                <div class="col-12 text-center">
+                    <button onclick="generate()" type="button" class="btn btn-secondary btn-lg">GENERATE</button>
+                </div>
+            </div>
+        </div>
+
+        <script type="text/javascript">
+
+            function generate() {
+                var passLength = prompt("Password Length: Please choose a number between 8 and 128.");
+                var charUpper = confirm("Do you want Uppercase letters in your password?");
+                var charLower = confirm("Do you want Lowercase letters in your password?");
+                var charNum = confirm("Do you want numbers in your password?");
+                var charSpec = confirm("Do you want special characters in your password?");
+
+                var arrayJ = ["a", "b", "c", "d", "e", "f", "g", "h", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""];
+                var arrayZ = ["A", "B", "C", "D", "E", "F", "G", "H", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""];
+                var arrayV = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
+                var arrayK = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "<", ">", "/", "?"];
+                var password = [];
+                var xPass = [];
+                var length = passLength;
+
+                function passwordGenerator() {
+                    if (passLength >= 8) {
+                        for (i=0; i < length; i++) {
+                            if (charUpper) {
+                                password += arrayZ[Math.floor(Math.random() * arrayZ.length)];
+                            }
+                            if (charLower) {
+                                password += arrayJ[Math.floor(Math.random() * arrayJ.length)];
+
+                            }
+                            if (charNum) {
+                                password += arrayV[Math.floor(Math.random() * arrayV.length)];
+                            }
+                            if (charSpec) {
+                                password += arrayK[Math.floor(Math.random() * arrayK.length)];
+                            }
+                        }
+                        for (i=0; i <= length; i++) {
+                            xPass += password[Math.floor(Math.random() * password.length)];
+                        }
+                        return xPass;                    
+                    }                    
+                    else {
+                    alert("You did not pick a number correctly. Run the generator again!")
+                    }
+                }               
+                
+                document.getElementById("demo").innerHTML = passwordGenerator(); 
+            }        
+
+        </script>    
+    </body>
 </html>
