@@ -47,23 +47,59 @@
 
     <script type="text/javascript">
 
-        var lettersLower = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-        var lettersUpper = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
-        var symbols = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "_", "-", "=", "+", "{", "[", "}", "]", ";", ":", ",", ".", "<", ">", "/", "?"];
-        var numbers = [];
-        
-        var passLength = prompt("Password Length: Please choose a number between 8 and 128.");
-        var charUpper = confirm("Do you want Uppercase letters in your password?");
-        var charLower = confirm("Do you want Lowercase letters in your password?");
-        var charNum = confirm("Do you want numbers in your password?");
-        
-        for (i = 8; i < 129; i++) {
-            var arrNum = i;
-            console.log(i);
-            numbers.push(arrNum);
-            
+    var passLength = prompt("Password Length: Please choose a number between 8 and 128.");
+    var charUpper = confirm("Do you want Uppercase letters in your password?");
+    var charLower = confirm("Do you want Lowercase letters in your password?");
+    var charNum = confirm("Do you want numbers in your password?");
+    var charSpec = confirm("Do you want special characters in your password?");
+
+    var arrayJ = ["a", "b", "c", "d", "e", "f", "g", "h", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""];
+    var arrayZ = ["A", "B", "C", "D", "E", "F", "G", "H", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""];
+    var arrayV = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
+    var arrayK = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "<", ">", "/", "?"];
+    var password = [];
+    var xPass = [];
+    var length = passLength;
+
+    
+    if (passLength > 8) {
+
+        for (i=0; i < length; i++) {
+
+            if (charUpper) {
+                password += arrayZ[Math.floor(Math.random() * arrayZ.length)];
+            }
+            if (charLower) {
+                password += arrayJ[Math.floor(Math.random() * arrayJ.length)];
+
+            }
+            if (charNum) {
+                password += arrayV[Math.floor(Math.random() * arrayV.length)];
+            }
+            if (charSpec) {
+                password += arrayK[Math.floor(Math.random() * arrayK.length)];
+            }
         }
-        console.log(numbers);
+
+        for (i=0; i <= length; i++) {
+
+            xPass += password[Math.floor(Math.random() * password.length)];
+
+        }
+
+        alert(xPass);
+            
+    }
+    else {
+        alert("You did not pick a number correctly. Run the generator again!")
+    }
+
+    
+
+    
+
+       
+
         
 
     </script>
