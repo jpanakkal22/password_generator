@@ -4,5 +4,5 @@
 
 ![Password Generator](password_generator.png)
 
-[Password Generator](https://jpanakkal22.github.io/password_generator/)
+
 
